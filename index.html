@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Lucas Lima, desenvolvedor web especializado em HTML5, CSS3 e JavaScript.">
+
+    <!-- Open Graph — prévia no WhatsApp e redes sociais -->
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Lucas Lima | Portfólio">
+    <meta property="og:description" content="Olá, meu nome é Lucas e sou um desenvolvedor web em ascensão. Sempre buscando aprender novas habilidades e aberto a novas oportunidades.">
+    <meta property="og:image"       content="https://portfolio.limaatec.com.br/og-perfil.png">
+    <meta property="og:url"         content="https://portfolio.limaatec.com.br">
+
+    <title>Lucas Lima | Portfólio</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon-512.svg">
+    <meta name="theme-color" content="#00d4ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Lucas.dev">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <nav aria-label="Navegação principal">
+            <a href="#hero" class="logo" aria-label="Ir para o início">Lucas<span>.dev</span></a>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre mim</a></li>
+                <li><a href="#educacao">Educação</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#curriculo">Currículo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <p class="hero-greeting">Olá, eu sou</p>
+            <h1 class="hero-name">Lucas Lima</h1>
+            <p class="hero-role"><span class="typewriter"></span><span class="cursor">|</span></p>
+            <div class="hero-cta">
+                <a href="#projetos" class="btn-primary">Ver Projetos</a>
+                <a href="https://github.com/lucasviniguimalima-stack" target="_blank" rel="noopener noreferrer" class="btn-secondary">GitHub</a>
+                <a href="https://www.linkedin.com/in/lucasviniguimalima" target="_blank" rel="noopener noreferrer" class="btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+        <a href="#sobre" class="hero-scroll" aria-label="Rolar para baixo">&#8964;</a>
+    </section>
+
+    <main class="container">
+
+        <section id="sobre" class="section-card hidden">
+            <h2 class="glow-text">Sobre mim</h2>
+            <p class="sobre-text">Olá, meu nome é Lucas e sou um desenvolvedor web em ascensão. Sou um entusiasta de tecnologia e estou sempre buscando aprender novas habilidades para aprimorar meu trabalho. Estou animado para crescer profissionalmente, e atualmente estou estudando e criando alguns projetos front-end. Além disso, gosto também de mexer com hardware e configurações de Sistemas Operacionais. Sempre aberto a novas oportunidades e desafios.</p>
+        </section>
+
+        <section id="educacao" class="section-card hidden">
+            <h2 class="glow-text">Educação</h2>
+            <div class="education-list">
+                <article class="info-box" data-animate>
+                    <h3>Técnico em Informática Integrado ao EM <span class="year-range">(2023–2025)</span></h3>
+                    <p class="institution">IFMT — Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso</p>
+                    <p>Desenvolvi habilidades em programação, redes e banco de dados, além de focar em habilidades interpessoais e trabalho em equipe. Toda paixão e base técnica que tenho hoje foi graças a essa formação.</p>
+                </article>
+                <!-- <article class="info-box">
+                    <h3>Engenharia de Software <span class="badge">Em breve</span></h3>
+                    <p class="institution">UniSENAI MT</p>
+                    <p>Quero cursar Eng. de Software com o objetivo de me especializar em arquitetura de software e metodologias ágeis para me destacar no mercado de tecnologia.</p>
+                </article> -->
+            </div>
+        </section>
+
+        <section id="skills" class="section-card hidden">
+            <h2 class="glow-text">Habilidades</h2>
+            <div class="skills-grid">
+                <article data-animate>
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>Montagem, Manutenção e Limpeza de Computadores</li>
+                        <li>Configurações de SO (Windows / Linux)</li>
+                        <li>Banco de Dados</li>
+                        <li>Design (Canva)</li>
+                        <li>HTML5 &amp; CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Pacote Office</li>
+                    </ul>
+                </article>
+                <article data-animate>
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Comunicação eficaz</li>
+                        <li>Trabalho em equipe</li>
+                        <li>Resolução de problemas</li>
+                        <li>Adaptabilidade</li>
+                        <li>Empatia</li>
+                        <li>Organização</li>
+                        <li>Proatividade</li>
+                        <li>Aprendizado contínuo</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="projetos" class="section-card hidden">
+            <h2 class="glow-text">Projetos</h2>
+            <div class="projects-grid">
+                <article class="project-card" data-animate>
+                    <h3>Portfólio Pessoal</h3>
+                    <p>Este site que você está visitando! Um projeto para mostrar minhas habilidades e experiências de forma profissional e atraente.</p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Ver Projeto</a>
+                        <a href="#" class="project-link project-link--outline">GitHub</a>
+                    </div>
+                </article>
+                <article class="project-card" data-animate>
+                    <h3>Landing Page IMMB</h3>
+                    <p>Apresenta informações básicas para novos membros da Igreja sobre cuidados com o Ohikari após a outorga, com link para inscrição no curso "Pós-Outorga".</p>
+                    <div class="project-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>PWA</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Ver Projeto</a>
+                        <a href="#" class="project-link project-link--outline">GitHub</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contato" class="section-card hidden">
+            <h2 class="glow-text">Contato</h2>
+            <address>
+                <ul class="contact-list">
+                    <li>
+                        <strong>WhatsApp</strong>
+                        <a href="https://wa.me/5565999408781?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portf%C3%B3lio!%20Gostaria%20de%20saber%20mais%20sobre%20voc%C3%AA!" target="_blank" rel="noopener noreferrer">(65) 99940-8781</a>
+                    </li>
+                    <li>
+                        <strong>E-mail</strong>
+                        <a href="mailto:lucasviniguimalima@gmail.com">lucasviniguimalima@gmail.com</a>
+                    </li>
+                    <li>
+                        <strong>LinkedIn</strong>
+                        <a href="https://www.linkedin.com/in/lucasviniguimalima" target="_blank" rel="noopener noreferrer">Acessar Perfil</a>
+                    </li>
+                    <li>
+                        <strong>GitHub</strong>
+                        <a href="https://github.com/lucasviniguimalima-stack" target="_blank" rel="noopener noreferrer">Ver Repositórios</a>
+                    </li>
+                </ul>
+            </address>
+        </section>
+
+        <section id="curriculo" class="section-card hidden">
+            <h2 class="glow-text">Currículo</h2>
+            <div class="curriculo-container">
+                <p>Gostou do meu perfil? Você pode baixar ou visualizar meu currículo em PDF.</p>
+                <a href="curriculo.pdf" target="_blank" rel="noopener noreferrer" class="btn-download">Visualizar Currículo (PDF)</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Lucas Lima — Desenvolvedor Web em ascensão</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
