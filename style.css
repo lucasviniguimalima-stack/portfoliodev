@@ -1,20 +1,24 @@
 /* =========================================
-   VARIÁVEIS & RESET
+   VARIÁVEIS GLOBAIS
+   Centralizadas aqui para fácil manutenção —
+   mudar uma cor reflete em todo o site
    ========================================= */
 :root {
-    --bg-color: #050505;
-    --card-bg: rgba(20, 20, 25, 0.8);
-    --accent-blue: #00d4ff;
-    --text-main: #ffffff;
-    --text-dim: #a0a0a0;
+    --bg-color:      #050505;
+    --card-bg:       rgba(20, 20, 25, 0.8);
+    --accent-blue:   #00d4ff;
+    --text-main:     #ffffff;
+    --text-dim:      #a0a0a0;
     --border-subtle: rgba(255, 255, 255, 0.05);
     --border-accent: rgba(0, 212, 255, 0.2);
 }
 
+/* scroll suave ao clicar nos links de âncora (#sobre, #projetos etc.) */
 html {
     scroll-behavior: smooth;
 }
 
+/* Reset básico — remove margens e padding padrão do navegador */
 * {
     margin: 0;
     padding: 0;
@@ -26,6 +30,7 @@ body {
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
+    /* suaviza fontes no Chrome/Safari e Firefox */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -34,36 +39,51 @@ body {
    NAVBAR
    ========================================= */
 .navbar {
-    position: fixed;
+    position: fixed;    /* fica no topo mesmo ao rolar */
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 0;
     background: rgba(5, 5, 5, 0.88);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px); /* efeito de vidro fosco */
     border-bottom: 1px solid var(--border-accent);
-    z-index: 1000;
+    z-index: 1000; /* garante que fique acima de todo o conteúdo */
     display: flex;
     justify-content: center;
 }
 
 .navbar nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
-    gap: 12px;
+    max-width: 1200px;
+    padding: 1rem 3%;
+    gap: 0;
 }
 
+/* Logo — link que volta ao topo */
 .logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+.logo-text {
     font-family: 'Orbitron', sans-serif;
     font-size: 1.8rem;
     letter-spacing: 3px;
-    text-decoration: none;
     color: var(--text-main);
 }
 
-.logo span {
+.logo-accent {
     color: var(--accent-blue);
 }
 
@@ -82,6 +102,7 @@ body {
     transition: color 0.3s, text-shadow 0.3s;
 }
 
+/* Link ativo (seção visível) e hover recebem destaque neon */
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--accent-blue);
@@ -89,7 +110,64 @@ body {
 }
 
 /* =========================================
-   HERO
+   HAMBURGER — visível apenas no mobile
+   ========================================= */
+.hamburger {
+    display: none; /* escondido no desktop */
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+}
+
+/* Cada traço do hamburger */
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--accent-blue);
+    border-radius: 2px;
+    box-shadow: 0 0 8px var(--accent-blue); /* brilho neon */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animação para virar X quando o menu está aberto */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* =========================================
+   CTA DO MENU MOBILE
+   Botão de WhatsApp — só aparece no mobile
+   ========================================= */
+.nav-cta-item { display: none; }
+
+.nav-cta {
+    display: block;
+    text-align: center;
+    padding: 11px;
+    background: var(--accent-blue);
+    color: var(--bg-color) !important;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-shadow: none !important;
+    transition: box-shadow 0.3s;
+}
+
+.nav-cta:hover {
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.5);
+}
+
+/* =========================================
+   HERO — primeira tela completa
    ========================================= */
 .hero {
     min-height: 100vh;
@@ -98,10 +176,11 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 160px 10% 6rem;
+    padding: 100px 10% 6rem;
     position: relative;
 }
 
+/* "Olá, eu sou" — texto pequeno acima do nome */
 .hero-greeting {
     font-size: 1rem;
     color: var(--accent-blue);
@@ -110,26 +189,31 @@ body {
     animation: fadeUp 0.6s ease 0.1s both;
 }
 
+/* Nome principal */
 .hero-name {
     font-family: 'Orbitron', sans-serif;
+    /* clamp(mínimo, preferido, máximo) — tamanho responsivo */
     font-size: clamp(2.2rem, 6vw, 4rem);
     letter-spacing: 4px;
     margin: 0.4rem 0 1rem;
     animation: fadeUp 0.6s ease 0.3s both;
 }
 
+/* Linha do typewriter */
 .hero-role {
     font-size: clamp(1rem, 2.5vw, 1.3rem);
     color: var(--text-dim);
-    min-height: 2rem;
+    min-height: 2rem; /* evita layout shift durante a troca de texto */
     animation: fadeUp 0.6s ease 0.5s both;
 }
 
+/* Cursor piscante ao lado do typewriter */
 .cursor {
     color: var(--accent-blue);
     animation: blink 0.8s step-end infinite;
 }
 
+/* Botões de ação do hero */
 .hero-cta {
     display: flex;
     gap: 1rem;
@@ -139,24 +223,7 @@ body {
     animation: fadeUp 0.6s ease 0.7s both;
 }
 
-.btn-primary {
-    padding: 12px 28px;
-    background: var(--accent-blue);
-    color: var(--bg-color);
-    font-weight: 700;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: box-shadow 0.3s, transform 0.3s;
-}
-
-.btn-primary:hover {
-    box-shadow: 0 0 24px rgba(0, 212, 255, 0.5);
-    transform: translateY(-2px);
-}
-
+/* Botão secundário — contorno azul transparente */
 .btn-secondary {
     padding: 12px 28px;
     background: transparent;
@@ -168,6 +235,9 @@ body {
     border: 2px solid var(--accent-blue);
     border-radius: 6px;
     text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
@@ -177,6 +247,7 @@ body {
     transform: translateY(-2px);
 }
 
+/* Seta de scroll no rodapé do hero */
 .hero-scroll {
     position: absolute;
     bottom: 2rem;
@@ -189,15 +260,22 @@ body {
     line-height: 1;
 }
 
+/* =========================================
+   KEYFRAMES — animações reutilizadas
+   ========================================= */
+
+/* Entrada de baixo para cima com fade */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Cursor piscante */
 @keyframes blink {
     50% { opacity: 0; }
 }
 
+/* Seta que sobe e desce */
 @keyframes bounce {
     0%, 100% { transform: translateX(-50%) translateY(0); }
     50%       { transform: translateX(-50%) translateY(8px); }
@@ -207,31 +285,35 @@ body {
    LAYOUT PRINCIPAL
    ========================================= */
 .container {
-    padding: 180px 10% 0;
+    padding: 100px 10% 0;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* scroll-margin-top evita que a navbar cubra o título da seção ao navegar */
 section {
-    scroll-margin-top: 180px;
+    scroll-margin-top: 100px;
 }
 
+/* Card base de cada seção */
 .section-card {
     margin-bottom: 3rem;
     padding: 2.5rem;
-    background: var(--card-bg);
+    background: rgba(20, 20, 25, 0.15);
     border-radius: 16px;
     border: 1px solid var(--border-subtle);
     transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
+/* Hover: borda acende em neon e card sobe levemente */
 .section-card:hover {
     border-color: var(--accent-blue);
     box-shadow: 0 0 28px rgba(0, 212, 255, 0.08);
     transform: translateY(-6px);
 }
 
+/* Título de cada seção */
 .glow-text {
     font-family: 'Orbitron', sans-serif;
     color: var(--accent-blue);
@@ -242,22 +324,23 @@ section {
 }
 
 /* =========================================
-   ANIMAÇÕES DE ENTRADA (JS-controlled)
+   ANIMAÇÕES DE ENTRADA (controladas pelo JS)
    ========================================= */
 
-/* Seções inteiras */
+/* Estado inicial — invisível e deslocado para baixo */
 .hidden {
     opacity: 0;
     transform: translateY(24px);
     transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+/* Estado final — visível na posição correta */
 .show {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Cards internos com stagger */
+/* Cards internos com efeito cascata (stagger) */
 [data-animate] {
     opacity: 0;
     transform: translateY(16px);
@@ -272,109 +355,39 @@ section {
 /* =========================================
    SEÇÃO: SOBRE MIM
    ========================================= */
+
+.sobre-content {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.sobre-photo-wrap {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-photo {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 50%;
+    border: 2px solid var(--accent-blue);
+    box-shadow: 0 0 24px rgba(0, 212, 255, 0.3), 0 0 6px rgba(0, 212, 255, 0.15) inset;
+}
+
 .sobre-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.sobre-text p {
     color: var(--text-dim);
     line-height: 1.85;
-}
-
-/* =========================================
-   SEÇÃO: EDUCAÇÃO
-   ========================================= */
-.education-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.info-box {
-    padding: 1.5rem;
-    background: rgba(0, 212, 255, 0.03);
-    border: 1px solid var(--border-accent);
-    border-radius: 10px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.info-box:hover {
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 18px rgba(0, 212, 255, 0.1);
-}
-
-.info-box h3 {
-    margin-bottom: 0.4rem;
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
-
-.year-range {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--text-dim);
-    letter-spacing: 0.5px;
-}
-
-.institution {
-    color: var(--accent-blue);
-    font-size: 0.9rem;
-    margin-bottom: 0.75rem;
-    opacity: 0.85;
-}
-
-
-.info-box p:last-child {
-    color: var(--text-dim);
-    line-height: 1.75;
-}
-
-/* =========================================
-   SEÇÃO: HABILIDADES
-   ========================================= */
-.skills-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-}
-
-.skills-grid article {
-    padding: 1.5rem;
-    background: rgba(0, 212, 255, 0.03);
-    border: 1px solid var(--border-accent);
-    border-radius: 10px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.skills-grid article:hover {
-    border-color: var(--accent-blue);
-    box-shadow: 0 0 18px rgba(0, 212, 255, 0.1);
-}
-
-.skills-grid h3 {
-    color: var(--accent-blue);
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.skills-grid ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.skills-grid li {
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    padding-left: 1rem;
-    position: relative;
-}
-
-.skills-grid li::before {
-    content: '›';
-    position: absolute;
-    left: 0;
-    color: var(--accent-blue);
 }
 
 /* =========================================
@@ -382,44 +395,88 @@ section {
    ========================================= */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
+/* Card de projeto — sem padding no topo para a imagem sangrar até a borda */
 .project-card {
-    padding: 1.5rem;
     background: rgba(0, 212, 255, 0.03);
     border: 1px solid var(--border-accent);
     border-radius: 10px;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    overflow: hidden; /* faz a imagem respeitar o border-radius */
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
 }
 
 .project-card:hover {
     border-color: var(--accent-blue);
-    box-shadow: 0 0 18px rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.12);
+    transform: translateY(-4px);
 }
 
-.project-card h3 {
+/* Screenshot do projeto */
+.project-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* recorta a imagem para preencher sem distorcer */
+    display: block;
+    border-bottom: 1px solid var(--border-accent);
+    /* Fundo de fallback caso a imagem ainda não exista */
+    background: rgba(0, 212, 255, 0.05);
+}
+
+/* Corpo do card — padding e conteúdo textual */
+.project-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1; /* ocupa o espaço restante para alinhar links no rodapé */
+}
+
+.project-body h3 {
     font-size: 1rem;
     color: var(--text-main);
 }
 
-.project-card p {
+.project-body p {
     color: var(--text-dim);
     font-size: 0.9rem;
     line-height: 1.7;
     flex: 1;
 }
 
+/* Tags de tecnologia */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
 
+.project-tags span {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 20px;
+    color: var(--accent-blue);
+    white-space: nowrap;
+}
+
+/* Mensagem abaixo dos projetos */
+.em-breve {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    opacity: 0.7;
+}
+
+/* Links de ação do card (Ver projeto / GitHub) */
 .project-links {
     display: flex;
     gap: 0.75rem;
@@ -438,6 +495,9 @@ section {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     transition: box-shadow 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
 .project-link:hover {
@@ -445,6 +505,7 @@ section {
     transform: translateY(-1px);
 }
 
+/* Variante contorno (GitHub) */
 .project-link--outline {
     background: transparent;
     color: var(--accent-blue);
@@ -456,15 +517,6 @@ section {
     color: var(--bg-color);
 }
 
-.project-tags span {
-    font-size: 0.72rem;
-    padding: 3px 10px;
-    border: 1px solid rgba(0, 212, 255, 0.4);
-    border-radius: 20px;
-    color: var(--accent-blue);
-    white-space: nowrap;
-}
-
 /* =========================================
    SEÇÃO: CONTATO
    ========================================= */
@@ -472,72 +524,64 @@ address {
     font-style: normal;
 }
 
-.contact-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-}
-
-.contact-list li {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.contact-list strong {
+/* Subtítulo da seção */
+.contact-intro {
     color: var(--text-dim);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    min-width: 80px;
-}
-
-.contact-list a {
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: text-shadow 0.3s;
-}
-
-.contact-list a:hover {
-    text-shadow: 0 0 10px var(--accent-blue);
-}
-
-/* =========================================
-   SEÇÃO: CURRÍCULO
-   ========================================= */
-.curriculo-container {
+    margin-bottom: 2rem;
     text-align: center;
-    padding: 1rem;
 }
 
-.curriculo-container p {
+/* Ícones de contato centralizados */
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+/* Cada ícone clicável */
+.contact-icon {
+    font-size: 2.2rem;
     color: var(--text-dim);
-    margin-bottom: 0.5rem;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
 }
 
-.btn-download {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 12px 32px;
+/* Hover: acende em neon e sobe levemente */
+.contact-icon:hover {
+    color: var(--accent-blue);
+    text-shadow: 0 0 18px var(--accent-blue);
+    transform: translateY(-4px);
+}
+
+.cv-cta {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.curriculo-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 14px 36px;
     background: transparent;
     color: var(--accent-blue);
     border: 2px solid var(--accent-blue);
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
+    border-radius: 8px;
+    font-family: 'Orbitron', sans-serif;
     font-size: 0.85rem;
-    text-transform: uppercase;
     letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
     transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-.btn-download:hover {
+.curriculo-cta__btn:hover {
     background: var(--accent-blue);
     color: var(--bg-color);
-    box-shadow: 0 0 22px rgba(0, 212, 255, 0.5);
-    transform: scale(1.04);
+    box-shadow: 0 0 28px rgba(0, 212, 255, 0.4);
+    transform: translateY(-2px);
 }
 
 /* =========================================
@@ -552,14 +596,86 @@ footer {
     margin-top: 2rem;
 }
 
+/* Link do currículo no footer */
+.footer-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--accent-blue);
+}
+
 /* =========================================
-   RESPONSIVIDADE
+   MODAL — lightbox de imagens
+   ========================================= */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: zoom-out;
+}
+
+.modal-overlay.open {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+}
+
+.modal-img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 10px;
+    border: 1px solid var(--border-accent);
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.15);
+    cursor: default;
+}
+
+.modal-close {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 2.2rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--accent-blue);
+    transform: scale(1.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Cursor pointer nas imagens dos cards */
+.project-img {
+    cursor: zoom-in;
+}
+
+/* =========================================
+   RESPONSIVIDADE — mobile (até 768px)
    ========================================= */
 @media (max-width: 768px) {
+
+    /* Hero ocupa a tela toda com menos padding lateral */
     .hero {
         padding: 140px 6% 5rem;
     }
 
+    /* Botões do hero empilhados em coluna */
     .hero-cta {
         flex-direction: column;
         align-items: center;
@@ -572,58 +688,100 @@ footer {
         text-align: center;
     }
 
+    /* Container com padding menor para aproveitar a tela */
     .container {
         padding: 0 5%;
-        padding-top: 200px;
+        padding-top: 90px;
     }
 
+    /* Compensa a navbar menor no mobile */
     section {
-        scroll-margin-top: 200px;
+        scroll-margin-top: 90px;
     }
 
+    /* Navbar — logo + hamburger em linha */
     .navbar {
-        padding: 0.85rem 0;
+        padding: 0;
     }
 
     .navbar nav {
-        gap: 8px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.9rem 1.5rem;
+        gap: 0;
     }
 
-    .logo {
+    /* Exibe o botão hamburger no mobile */
+    .hamburger {
+        display: flex;
+    }
+
+    .logo-img {
+        height: 48px;
+    }
+
+    .logo-text {
         font-size: 1.4rem;
         letter-spacing: 2px;
     }
 
+    /* Menu oculto por padrão, aparece com a classe .open */
     .nav-links {
-        gap: 1rem;
-        flex-wrap: wrap;
-        padding: 0 1rem;
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0.5rem 0 1rem;
+        border-top: 1px solid var(--border-accent);
+        margin-top: 0.75rem;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
     }
 
     .nav-links a {
-        font-size: 0.78rem;
-        white-space: nowrap;
+        display: block;
+        padding: 0.75rem 0.25rem;
+        font-size: 0.95rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        white-space: normal;
+    }
+
+    /* Botão WhatsApp visível no menu mobile */
+    .nav-cta-item {
+        display: block;
+        margin-top: 0.75rem;
     }
 
     .section-card {
         padding: 1.5rem;
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr;
+    .sobre-content {
+        flex-direction: column;
+        align-items: center;
     }
 
+    .sobre-photo {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Projetos em coluna única no mobile */
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
-    .contact-list li {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.2rem;
-    }
-
-    .contact-list strong {
-        min-width: auto;
+    /* Ícones de contato com menos espaço */
+    .contact-icons {
+        gap: 2rem;
     }
 }

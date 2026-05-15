@@ -1,13 +1,18 @@
-const CACHE = 'portfolio-v1';
+const CACHE = 'portfolio-v6';
 const FILES = [
     '/',
     '/index.html',
     '/style.css',
     '/script.js',
-    '/favicon.svg',
-    '/icon-512.svg',
+    '/favicon.png',
+    '/icon-512.png',
     '/manifest.json',
-    '/curriculo.pdf'
+    '/curriculo.pdf',
+    '/portfolio.png',
+    '/igreja-messianica.png',
+    '/og-image.png',
+    '/logosimples.png',
+    '/perfil.webp'
 ];
 
 self.addEventListener('install', (e) => {

@@ -3,180 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Lucas Lima, desenvolvedor web especializado em HTML5, CSS3 e JavaScript.">
+    <meta name="description" content="Portfólio de Lucas Lima, desenvolvedor web focado em front-end com HTML, CSS e JavaScript.">
 
     <!-- Open Graph — prévia no WhatsApp e redes sociais -->
     <meta property="og:type"        content="website">
-    <meta property="og:title"       content="Lucas Lima | Portfólio">
-    <meta property="og:description" content="Olá, meu nome é Lucas e sou um desenvolvedor web em ascensão. Sempre buscando aprender novas habilidades e aberto a novas oportunidades.">
-    <meta property="og:image"       content="https://portfolio.limaatec.com.br/og-perfil.png">
+    <meta property="og:title"       content="Lucas Lima | Portfólio Profissional">
+    <meta property="og:description" content="Desenvolvedor Web Front-end">
+    <meta property="og:image"       content="https://portfolio.limaatec.com.br/og-image.png">
     <meta property="og:url"         content="https://portfolio.limaatec.com.br">
 
     <title>Lucas Lima | Portfólio</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icon-512.svg">
+    <link rel="apple-touch-icon" href="icon-512.png">
     <meta name="theme-color" content="#00d4ff">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Lucas.dev">
-    <link rel="stylesheet" href="style.css">
+    <meta name="apple-mobile-web-app-title" content="Limaa.tec">
+
+    <!-- Fontes -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome — ícones de contato e projetos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- ============================================================
+         NAVBAR — barra de navegação fixa no topo
+    ============================================================ -->
     <header class="navbar">
         <nav aria-label="Navegação principal">
-            <a href="#hero" class="logo" aria-label="Ir para o início">Lucas<span>.dev</span></a>
+            <a href="#hero" class="logo" aria-label="Ir para o início">
+                <img src="logosimples.png" alt="" class="logo-img">
+                <span class="logo-text">Limaa<span class="logo-accent">.tec</span></span>
+            </a>
+
+            <!-- Botão hamburger — visível apenas no mobile -->
+            <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <ul class="nav-links">
                 <li><a href="#sobre">Sobre mim</a></li>
-                <li><a href="#educacao">Educação</a></li>
-                <li><a href="#skills">Habilidades</a></li>
                 <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#contato">Contato</a></li>
-                <li><a href="#curriculo">Currículo</a></li>
+                <!-- Botão CTA do WhatsApp — visível apenas no mobile -->
+                <li class="nav-cta-item">
+                    <a href="https://wa.me/5565999408781?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portf%C3%B3lio!%20Gostaria%20de%20saber%20mais%20sobre%20voc%C3%AA!"
+                       target="_blank" rel="noopener noreferrer" class="nav-cta">WhatsApp</a>
+                </li>
             </ul>
         </nav>
     </header>
 
+    <!-- ============================================================
+         HERO — primeira tela com nome e chamada para ação
+    ============================================================ -->
     <section id="hero" class="hero">
         <div class="hero-content">
             <p class="hero-greeting">Olá, eu sou</p>
             <h1 class="hero-name">Lucas Lima</h1>
+            <!-- Typewriter — textos alternados via JavaScript -->
             <p class="hero-role"><span class="typewriter"></span><span class="cursor">|</span></p>
             <div class="hero-cta">
-                <a href="#projetos" class="btn-primary">Ver Projetos</a>
-                <a href="https://github.com/lucasviniguimalima-stack" target="_blank" rel="noopener noreferrer" class="btn-secondary">GitHub</a>
-                <a href="https://www.linkedin.com/in/lucasviniguimalima" target="_blank" rel="noopener noreferrer" class="btn-secondary">LinkedIn</a>
+                <a href="https://github.com/limaatec" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/limaatec" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
             </div>
         </div>
+        <!-- Seta animada que leva para a seção Sobre mim -->
         <a href="#sobre" class="hero-scroll" aria-label="Rolar para baixo">&#8964;</a>
     </section>
 
+    <!-- ============================================================
+         CONTEÚDO PRINCIPAL
+    ============================================================ -->
     <main class="container">
 
+        <!-- SOBRE MIM -->
         <section id="sobre" class="section-card hidden">
             <h2 class="glow-text">Sobre mim</h2>
-            <p class="sobre-text">Olá, meu nome é Lucas e sou um desenvolvedor web em ascensão. Sou um entusiasta de tecnologia e estou sempre buscando aprender novas habilidades para aprimorar meu trabalho. Estou animado para crescer profissionalmente, e atualmente estou estudando e criando alguns projetos front-end. Além disso, gosto também de mexer com hardware e configurações de Sistemas Operacionais. Sempre aberto a novas oportunidades e desafios.</p>
-        </section>
-
-        <section id="educacao" class="section-card hidden">
-            <h2 class="glow-text">Educação</h2>
-            <div class="education-list">
-                <article class="info-box" data-animate>
-                    <h3>Técnico em Informática Integrado ao EM <span class="year-range">(2023–2025)</span></h3>
-                    <p class="institution">IFMT — Instituto Federal de Educação, Ciência e Tecnologia de Mato Grosso</p>
-                    <p>Desenvolvi habilidades em programação, redes e banco de dados, além de focar em habilidades interpessoais e trabalho em equipe. Toda paixão e base técnica que tenho hoje foi graças a essa formação.</p>
-                </article>
-                <!-- <article class="info-box">
-                    <h3>Engenharia de Software <span class="badge">Em breve</span></h3>
-                    <p class="institution">UniSENAI MT</p>
-                    <p>Quero cursar Eng. de Software com o objetivo de me especializar em arquitetura de software e metodologias ágeis para me destacar no mercado de tecnologia.</p>
-                </article> -->
+            <div class="sobre-content">
+                <div class="sobre-photo-wrap">
+                    <img src="perfil.webp" alt="Foto de Lucas Lima" class="sobre-photo">
+                </div>
+                <div class="sobre-text">
+                    <p>Me chamo Lucas Lima, tenho formação técnica em Informática pelo IFMT e estou nos primeiros capítulos da minha trajetória como desenvolvedor web. O curso técnico me deu a base — programação, redes, banco de dados, softwares e hardware — mas foi quebrando a cabeça com HTML, CSS e JavaScript por conta própria que entendi onde eu quero chegar.</p>
+                    <p>Atualmente estou com o foco no front-end: construindo projetos do zero, estudando e tentando escrever código cada vez melhor. Sem framework por enquanto — quero entender bem o básico antes de subir a complexidade. Aos poucos vou colocando meus projetos aqui.</p>
+                    <p>Tenho também um lado que curte hardware, configuração de SO e resolver aquele problema esquisito que ninguém sabe explicar, mas que o cara da TI entende. Estou aberto a oportunidades onde eu possa aprender na prática e crescer junto com um time.</p>
+                </div>
             </div>
         </section>
 
-        <section id="skills" class="section-card hidden">
-            <h2 class="glow-text">Habilidades</h2>
-            <div class="skills-grid">
-                <article data-animate>
-                    <h3>Hard Skills</h3>
-                    <ul>
-                        <li>Montagem, Manutenção e Limpeza de Computadores</li>
-                        <li>Configurações de SO (Windows / Linux)</li>
-                        <li>Banco de Dados</li>
-                        <li>Design (Canva)</li>
-                        <li>HTML5 &amp; CSS3</li>
-                        <li>JavaScript (ES6+)</li>
-                        <li>Pacote Office</li>
-                    </ul>
-                </article>
-                <article data-animate>
-                    <h3>Soft Skills</h3>
-                    <ul>
-                        <li>Comunicação eficaz</li>
-                        <li>Trabalho em equipe</li>
-                        <li>Resolução de problemas</li>
-                        <li>Adaptabilidade</li>
-                        <li>Empatia</li>
-                        <li>Organização</li>
-                        <li>Proatividade</li>
-                        <li>Aprendizado contínuo</li>
-                    </ul>
-                </article>
-            </div>
-        </section>
-
+        <!-- PROJETOS -->
         <section id="projetos" class="section-card hidden">
             <h2 class="glow-text">Projetos</h2>
             <div class="projects-grid">
+
+                <!-- Card: Portfólio Pessoal -->
                 <article class="project-card" data-animate>
-                    <h3>Portfólio Pessoal</h3>
-                    <p>Este site que você está visitando! Um projeto para mostrar minhas habilidades e experiências de forma profissional e atraente.</p>
-                    <div class="project-tags">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Ver Projeto</a>
-                        <a href="#" class="project-link project-link--outline">GitHub</a>
+                    <!-- Screenshot do projeto — arquivo: portfolio.png (600×338px) -->
+                    <img src="portfolio.png" alt="Screenshot do Portfólio Pessoal" class="project-img">
+                    <div class="project-body">
+                        <h3>Portfólio Pessoal</h3>
+                        <p>Este site. Construído do zero com HTML, CSS e JavaScript puro — sem framework, sem biblioteca de UI. PWA instalável.</p>
+                        <div class="project-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>PWA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://portfolio.limaatec.com.br" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver projeto
+                            </a>
+                            <a href="https://github.com/limaatec/portfoliodev" target="_blank" rel="noopener noreferrer" class="project-link project-link--outline">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
                 </article>
+
+                <!-- Card: Landing Page IMMB -->
                 <article class="project-card" data-animate>
-                    <h3>Landing Page IMMB</h3>
-                    <p>Apresenta informações básicas para novos membros da Igreja sobre cuidados com o Ohikari após a outorga, com link para inscrição no curso "Pós-Outorga".</p>
-                    <div class="project-tags">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                        <span>PWA</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link">Ver Projeto</a>
-                        <a href="#" class="project-link project-link--outline">GitHub</a>
+                    <!-- Screenshot do projeto — arquivo: igreja-messianica.png (600×338px) -->
+                    <img src="igreja-messianica.png" alt="Screenshot da Landing Page IMMB" class="project-img">
+                    <div class="project-body">
+                        <h3>Landing Page IMMB</h3>
+                        <p>Landing page para novos membros da Igreja Messiânica com informações sobre o Ohikari e inscrição no curso Pós-Outorga.</p>
+                        <div class="project-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>PWA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://paginaimmb.pages.dev/" target="_blank" rel="noopener noreferrer" class="project-link">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver projeto
+                            </a>
+                            <a href="https://github.com/limaatec/primeirospassosohikari" target="_blank" rel="noopener noreferrer" class="project-link project-link--outline">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                        </div>
                     </div>
                 </article>
+
             </div>
+            <p class="em-breve">Em breve mais projetos</p>
         </section>
 
+        <!-- CONTATO -->
         <section id="contato" class="section-card hidden">
             <h2 class="glow-text">Contato</h2>
+            <p class="contact-intro">Quer conversar? Me encontra por aqui.</p>
             <address>
-                <ul class="contact-list">
-                    <li>
-                        <strong>WhatsApp</strong>
-                        <a href="https://wa.me/5565999408781?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portf%C3%B3lio!%20Gostaria%20de%20saber%20mais%20sobre%20voc%C3%AA!" target="_blank" rel="noopener noreferrer">(65) 99940-8781</a>
-                    </li>
-                    <li>
-                        <strong>E-mail</strong>
-                        <a href="mailto:lucasviniguimalima@gmail.com">lucasviniguimalima@gmail.com</a>
-                    </li>
-                    <li>
-                        <strong>LinkedIn</strong>
-                        <a href="https://www.linkedin.com/in/lucasviniguimalima" target="_blank" rel="noopener noreferrer">Acessar Perfil</a>
-                    </li>
-                    <li>
-                        <strong>GitHub</strong>
-                        <a href="https://github.com/lucasviniguimalima-stack" target="_blank" rel="noopener noreferrer">Ver Repositórios</a>
-                    </li>
-                </ul>
+                <div class="contact-icons">
+                    <a href="https://wa.me/5565999408781?text=Ol%C3%A1%20Lucas,%20vi%20seu%20portf%C3%B3lio!%20Gostaria%20de%20saber%20mais%20sobre%20voc%C3%AA!"
+                       target="_blank" rel="noopener noreferrer"
+                       class="contact-icon" aria-label="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lucasvinicius_1804"
+                       target="_blank" rel="noopener noreferrer"
+                       class="contact-icon" aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="mailto:lucasviniguimalima@gmail.com"
+                       class="contact-icon" aria-label="E-mail">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/limaatec"
+                       target="_blank" rel="noopener noreferrer"
+                       class="contact-icon" aria-label="LinkedIn">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/limaatec"
+                       target="_blank" rel="noopener noreferrer"
+                       class="contact-icon" aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
             </address>
-        </section>
-
-        <section id="curriculo" class="section-card hidden">
-            <h2 class="glow-text">Currículo</h2>
-            <div class="curriculo-container">
-                <p>Gostou do meu perfil? Você pode baixar ou visualizar meu currículo em PDF.</p>
-                <a href="curriculo.pdf" target="_blank" rel="noopener noreferrer" class="btn-download">Visualizar Currículo (PDF)</a>
+            <div class="cv-cta">
+                <a href="curriculo.pdf" download class="curriculo-cta__btn">
+                    <i class="fa-solid fa-file-arrow-down"></i> Baixar CV
+                </a>
             </div>
         </section>
 
     </main>
 
+    <!-- FOOTER — link do currículo guardado aqui discretamente -->
     <footer>
-        <p>&copy; 2026 Lucas Lima — Desenvolvedor Web em ascensão</p>
+        <p>&copy; 2026 Lucas Lima — Desenvolvedor Web em formação
+            <br>Todos os direitos reservados.
+        </p>
     </footer>
+
+    <!-- MODAL — lightbox para expandir imagens dos projetos -->
+    <div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-label="Imagem do projeto">
+        <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+        <img class="modal-img" id="modalImg" src="" alt="">
+    </div>
 
     <script src="script.js"></script>
 </body>

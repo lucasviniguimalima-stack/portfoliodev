@@ -1,6 +1,6 @@
 {
   "name": "Lucas Lima | Portfólio",
-  "short_name": "Lucas.dev",
+  "short_name": "Limaa.tec",
   "description": "Portfólio de Lucas Lima, desenvolvedor web especializado em HTML5, CSS3 e JavaScript.",
   "start_url": "/",
   "display": "standalone",
@@ -9,10 +9,10 @@
   "theme_color": "#00d4ff",
   "icons": [
     {
-      "src": "icon-512.svg",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
-      "purpose": "any"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
